@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bygndkph7eqgl"]
+
+[ext_resource type="PackedScene" uid="uid://cbnfdvkem37u5" path="res://main_character.tscn" id="1_x5nvb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sgqxb"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3gvvp"]
+data = PackedVector3Array(-30, 1, 30, 30, 1, 30, -30, -1, 30, 30, 1, 30, 30, -1, 30, -30, -1, 30, 30, 1, -30, -30, 1, -30, 30, -1, -30, -30, 1, -30, -30, -1, -30, 30, -1, -30, 30, 1, 30, 30, 1, -30, 30, -1, 30, 30, 1, -30, 30, -1, -30, 30, -1, 30, -30, 1, -30, -30, 1, 30, -30, -1, -30, -30, 1, 30, -30, -1, 30, -30, -1, -30, 30, 1, 30, -30, 1, 30, 30, 1, -30, -30, 1, 30, -30, 1, -30, 30, 1, -30, -30, -1, 30, 30, -1, 30, -30, -1, -30, 30, -1, 30, 30, -1, -30, -30, -1, -30)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_sgqxb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConcavePolygonShape3D_3gvvp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_x5nvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
