@@ -6,14 +6,16 @@ const JUMP_VELOCITY = 4.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
-func _ready() -> void:
+
+	#camera.current=true
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int())
+	
+# Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
+func _ready():
 	if not is_multiplayer_authority():
 		return
 	camera.current=true
-func _enter_tree():
-	set_multiplayer_authority(str(name).to_int())
-# Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_multiplayer_authority():
