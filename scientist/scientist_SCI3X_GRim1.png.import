@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c628c36skbjp3"
-path.s3tc="res://.godot/imported/Sci3_Shoe.png-077177a662ec54792531570c79056c96.s3tc.ctex"
+uid="uid://c5cp3as4i0ep1"
+path.s3tc="res://.godot/imported/scientist_SCI3X_GRim1.png-95dfc52d4221223229078937f560fd30.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "023fb285bf9850ccc10287a3a8db3603"
+}
 
 [deps]
 
-source_file="res://scientist/Sci3_Shoe.png"
-dest_files=["res://.godot/imported/Sci3_Shoe.png-077177a662ec54792531570c79056c96.s3tc.ctex"]
+source_file="res://scientist/scientist_SCI3X_GRim1.png"
+dest_files=["res://.godot/imported/scientist_SCI3X_GRim1.png-95dfc52d4221223229078937f560fd30.s3tc.ctex"]
 
 [params]
 
