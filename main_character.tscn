@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctqvc3psgasvo"]
 
-[ext_resource type="Script" path="res://CharacterBody3d.cs" id="1_3njjv"]
+[ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://c4fve3c7cteix" path="res://scientist/nerd.dae" id="2_tw7k4"]
 [ext_resource type="ArrayMesh" uid="uid://cmiiieq7abknt" path="res://blahaj/blahaj.obj" id="3_1y0rl"]
 
@@ -9,7 +9,7 @@ height = 7.5
 radius = 3.0
 
 [node name="MainCharacter" type="CharacterBody3D"]
-script = ExtResource("1_3njjv")
+script = ExtResource("1_ogrvs")
 
 [node name="nerd" parent="." instance=ExtResource("2_tw7k4")]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
