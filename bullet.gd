@@ -1,4 +1,4 @@
-extends RayCast3D
+extends Node3D
 
 const SPEED = 40.0
 

@@ -12,8 +12,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck = $Neck
 @onready var camera = $Neck/Camera3D
 @onready var gun_animation = $Neck/Camera3D/Blahaj
-@onready var gun_anim = $Neck/Camera3D/Rifle/Blahaj/AnimationPlayer
-@onready var gun_barrel = $Neck/Camera3D/Blahaj/RayCast3D
+@onready var gun_anim = $Neck/Camera3D/Rifle/AnimationPlayer
+@onready var gun_barrel = $Neck/Camera3D/Rifle/RayCast3D
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -41,10 +41,10 @@ func _physics_process(delta: float) -> void:
 		if !gun_anim.is_playing():
 			print("test")
 			gun_anim.play("Shoot")
-			#instance = bullet.instantiate()
-			#instance.position = gun_barrel.global_position()
-			#instance.transform.basis = gun_barrel.global_transform.basis
-			#get_parent().add_child(instance)
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
 		
 
 	# Get the input direction and handle the movement/deceleration.
