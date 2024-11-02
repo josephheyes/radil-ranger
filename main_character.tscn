@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbnfdvkem37u5"]
+[gd_scene load_steps=4 format=3 uid="uid://btufjuk03n4w7"]
 
 [ext_resource type="Script" path="res://CharacterBody3d.cs" id="1_3njjv"]
 [ext_resource type="PackedScene" uid="uid://c4fve3c7cteix" path="res://scientist/nerd.dae" id="2_tw7k4"]
@@ -12,6 +12,7 @@ script = ExtResource("1_3njjv")
 
 [node name="nerd" parent="." instance=ExtResource("2_tw7k4")]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
