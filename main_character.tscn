@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctqvc3psgasvo"]
+[gd_scene load_steps=5 format=3 uid="uid://cbnfdvkem37u5"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://c4fve3c7cteix" path="res://scientist/nerd.dae" id="2_tw7k4"]
