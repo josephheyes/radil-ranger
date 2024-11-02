@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuy2burwt0k2m"]
+[gd_scene load_steps=4 format=3 uid="uid://cuy2burwt0k2m"]
 
-[ext_resource type="PackedScene" path="res://main_character.tscn" id="1_x5nvb"]
-[ext_resource type="ArrayMesh" uid="uid://cmiiieq7abknt" path="res://blahaj/blahaj.obj" id="2_r5xhh"]
+[ext_resource type="PackedScene" uid="uid://ctqvc3psgasvo" path="res://main_character.tscn" id="1_x5nvb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sgqxb"]
 size = Vector3(60, 2, 60)
@@ -31,11 +30,3 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_x5nvb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Blahaj" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0697361, -0.0323661, 0.99704, 0.530291, 0.845356, 0.0645323, -0.844943, 0.533222, -0.0417884, -0.806831, 3.89582, 1.10925)
-mesh = ExtResource("2_r5xhh")
-
-[node name="Blahaj2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0697361, -0.0323661, 0.99704, 0.530291, 0.845356, 0.0645323, -0.844943, 0.533222, -0.0417884, -0.806831, 3.89582, 1.10925)
-mesh = ExtResource("2_r5xhh")
