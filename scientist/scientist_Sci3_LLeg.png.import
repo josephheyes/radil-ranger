@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjrebru1mfkr"
-path.s3tc="res://.godot/imported/Sci2_Hand1.png-fb75ac73b1150f28a3dfa6a9f38bae68.s3tc.ctex"
+uid="uid://diaq3h8peu54s"
+path.s3tc="res://.godot/imported/scientist_Sci3_LLeg.png-bfbd8505a91a3d5a14152997f038341e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "00884501de6f691ca81e15220c6b73b7"
+}
 
 [deps]
 
-source_file="res://scientist/Sci2_Hand1.png"
-dest_files=["res://.godot/imported/Sci2_Hand1.png-fb75ac73b1150f28a3dfa6a9f38bae68.s3tc.ctex"]
+source_file="res://scientist/scientist_Sci3_LLeg.png"
+dest_files=["res://.godot/imported/scientist_Sci3_LLeg.png-bfbd8505a91a3d5a14152997f038341e.s3tc.ctex"]
 
 [params]
 

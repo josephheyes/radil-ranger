@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4fve3c7cteix"
-path="res://.godot/imported/nerd.dae-0d32f1242b21e2b35e2e7a03498346c5.scn"
+uid="uid://crieo4w0fegep"
+path="res://.godot/imported/scientist.glb-a14ad7ae93af7958a81350ce9cc1313b.scn"
 
 [deps]
 
-source_file="res://scientist/nerd.dae"
-dest_files=["res://.godot/imported/nerd.dae-0d32f1242b21e2b35e2e7a03498346c5.scn"]
+source_file="res://scientist/scientist.glb"
+dest_files=["res://.godot/imported/scientist.glb-a14ad7ae93af7958a81350ce9cc1313b.scn"]
 
 [params]
 
@@ -32,3 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
