@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbnfdvkem37u5"]
+[gd_scene load_steps=5 format=3 uid="uid://cbnfdvkem37u5"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://crieo4w0fegep" path="res://scientist/scientist.glb" id="2_8q4yc"]
@@ -6,10 +6,24 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww5by"]
 size = Vector3(2.5, 7, 1)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1h60d"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Neck/Camera3D:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
 [node name="MainCharacter" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_ogrvs")
 
+
 [node name="scientist" parent="." instance=ExtResource("2_8q4yc")]
+
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
@@ -19,3 +33,11 @@ shape = SubResource("BoxShape3D_ww5by")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.42053, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41813, 0.402175)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0)
+shadow_enabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1h60d")
