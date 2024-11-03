@@ -7,6 +7,11 @@ const JUMP_VELOCITY = 4.5
 var bullet = load("res://bullet.tscn")
 var instance
 
+@export var damage := 1
+var health = 6
+
+signal body_part_hit(dam)
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -52,15 +57,12 @@ func _physics_process(delta: float) -> void:
 		
 	# Shooot
 	if Input.is_action_pressed("Shoot"):
-		print("test")
 		if !gun_anim.is_playing():
-			print("test")
 			gun_anim.play("Shoot")
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
-		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -74,3 +76,15 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _on_timer_timeout():
+	queue_free()
+	
+func hit():
+	emit_signal("body_part_hit",damage)
+	
+func _on_body_part_hit(dam: Variant) -> void:
+	print(health)
+	health -= dam
+	if health <= 0:
+		queue_free()

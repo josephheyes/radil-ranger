@@ -125,3 +125,5 @@ shadow_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1h60d")
+
+[connection signal="body_part_hit" from="." to="." method="_on_body_part_hit"]
