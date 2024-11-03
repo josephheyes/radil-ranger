@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+@onready var scientist := $scientist
 
 	#camera.current=true
 func _enter_tree():
@@ -27,8 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * 0.005)
+			scientist.rotate_y(-event.relative.x * 0.005)
 			camera.rotate_x(-event.relative.y * 0.005)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 
 func _physics_process(delta: float) -> void:

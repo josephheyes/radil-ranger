@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbhowwdvbnuhs"
-path.s3tc="res://.godot/imported/Sci3RLeg.png-32ee9afe465d3b2160b610c5911732ea.s3tc.ctex"
+uid="uid://526i4ke2m3d4"
+path.s3tc="res://.godot/imported/scientist_Sci2_Teeth.png-cf081ca076b48dea8585c10d8613e6a3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "7fb244cfa2604a1222ab98be54c46694"
+}
 
 [deps]
 
-source_file="res://scientist/Sci3RLeg.png"
-dest_files=["res://.godot/imported/Sci3RLeg.png-32ee9afe465d3b2160b610c5911732ea.s3tc.ctex"]
+source_file="res://scientist/scientist_Sci2_Teeth.png"
+dest_files=["res://.godot/imported/scientist_Sci2_Teeth.png-cf081ca076b48dea8585c10d8613e6a3.s3tc.ctex"]
 
 [params]
 

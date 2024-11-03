@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dey7s15j0uxyn"
-path.s3tc="res://.godot/imported/Sci3_RArm.png-7323e4c263e73d155efde3374b43dda8.s3tc.ctex"
+uid="uid://dc3foismv2ad2"
+path.s3tc="res://.godot/imported/scientist_Sci3_Chest.png-83d1cf0cdced64a9e2d71b753a109eb3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4b6ed1b93fbdcfe087e45f2ddc650366"
+}
 
 [deps]
 
-source_file="res://scientist/Sci3_RArm.png"
-dest_files=["res://.godot/imported/Sci3_RArm.png-7323e4c263e73d155efde3374b43dda8.s3tc.ctex"]
+source_file="res://scientist/scientist_Sci3_Chest.png"
+dest_files=["res://.godot/imported/scientist_Sci3_Chest.png-83d1cf0cdced64a9e2d71b753a109eb3.s3tc.ctex"]
 
 [params]
 
