@@ -7,6 +7,8 @@ const RAY_LENGTH = 1000
 @export var damage := 1
 var health = 6
 
+var last_lidar_delta := 0.0
+
 var bullet = load("res://bullet.tscn")
 var instance
 
@@ -54,8 +56,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			mainchar.rotation.x = clamp(mainchar.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 			
 func _physics_process(delta: float) -> void:
+	last_lidar_delta += delta
 	
-	if Input.is_action_just_pressed("lidar_scan"):
+	if last_lidar_delta > 0.2 and Input.is_action_pressed("lidar_scan"):
+		last_lidar_delta = 0
 		lidar_scan(delta)
 	
 	if not is_multiplayer_authority():
