@@ -52,6 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			#scientist.rotation.x = clamp(scientist.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 			mainchar.rotate_y(-event.relative.x * 0.005)
 			mainchar.rotation.x = clamp(mainchar.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("lidar_scan"):
