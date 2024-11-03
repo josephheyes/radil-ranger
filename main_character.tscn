@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbnfdvkem37u5"]
+
+[gd_scene load_steps=11 format=3 uid="uid://ioolcpo3k1af"]
+
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://crieo4w0fegep" path="res://scientist/scientist.glb" id="2_8q4yc"]
@@ -6,6 +8,22 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww5by"]
 size = Vector3(2.5, 7, 1)
+
+
+[sub_resource type="GDScript" id="GDScript_ftgfs"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 
 [sub_resource type="Animation" id="Animation_8k7rv"]
 length = 0.1
@@ -87,10 +105,27 @@ properties/2/path = NodePath("Neck/Camera3D:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
 
+properties/3/path = NodePath("Neck/Camera3D/Rifle/Blahaj:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Neck/Camera3D/Rifle/Blahaj:position")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Neck/Camera3D/Rifle:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("Neck/Camera3D/Rifle:position")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+
+
 [node name="MainCharacter" type="CharacterBody3D"]
 script = ExtResource("1_ogrvs")
 
 [node name="scientist" parent="." instance=ExtResource("2_8q4yc")]
+
+transform = Transform3D(-0.999363, 0, 0.0356843, 0, 1, 0, -0.0356843, 0, -0.999363, 0, 0, 0)
+
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
@@ -100,10 +135,11 @@ shape = SubResource("BoxShape3D_ww5by")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.42053, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41813, 0.402175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0725374, -0.697566)
 
 [node name="Rifle" type="Node3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192214, 0.0657947, -2.01855)
+script = SubResource("GDScript_ftgfs")
 
 [node name="Blahaj" type="MeshInstance3D" parent="Neck/Camera3D/Rifle"]
 transform = Transform3D(0.171567, -0.0495834, -0.983924, 0.626652, 0.776134, 0.0701574, 0.760179, -0.628615, 0.164231, 1.5298, -2.18565, 0.13554)
