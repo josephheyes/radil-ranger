@@ -117,6 +117,7 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
 		
 		var query = PhysicsRayQueryParameters3D.create(origin, new_end)
 		query.collide_with_areas = true
+		query.exclude = [self]
 
 		var result = space_state.intersect_ray(query)
 		if result:
@@ -124,7 +125,6 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
 	
 	get_tree().get_root().add_child(multimesh_instance)
 	await fade_mesh_instance(multimesh_instance)
-
 
 func fade_mesh_instance(instance: MultiMeshInstance3D):
 	await get_tree().create_timer(2).timeout
