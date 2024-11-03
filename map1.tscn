@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bygndkph7eqgl"]
+[gd_scene load_steps=8 format=3 uid="uid://bygndkph7eqgl"]
 
 [ext_resource type="Script" path="res://map_1.gd" id="1_21quo"]
 
@@ -13,6 +13,13 @@ size = Vector3(23.264, 5.8446, 0.704834)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ppm4r"]
 size = Vector3(23.264, 5.845, 0.705)
+
+[sub_resource type="Environment" id="Environment_63q2d"]
+background_mode = 5
+ambient_light_source = 1
+reflected_light_source = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jay3k"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_21quo")
@@ -30,11 +37,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("ConcavePolygonShape3D_3gvvp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0)
-visible = false
-shadow_enabled = true
 
 [node name="Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594196, 0.522036, -15.4012)
@@ -92,6 +94,10 @@ alignment = 1
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://main_character.tscn")
 spawn_path = NodePath("..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_63q2d")
+camera_attributes = SubResource("CameraAttributesPractical_jay3k")
 
 [connection signal="pressed" from="CanvasLayer/Main Menu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
