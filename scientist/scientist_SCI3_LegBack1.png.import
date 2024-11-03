@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0n5yn1mq7etp"
 path.s3tc="res://.godot/imported/scientist_SCI3_LegBack1.png-c44ebe30394d6aeae763f36ea23eca4b.s3tc.ctex"
+path.etc2="res://.godot/imported/scientist_SCI3_LegBack1.png-c44ebe30394d6aeae763f36ea23eca4b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://scientist/scientist_SCI3_LegBack1.png"
-dest_files=["res://.godot/imported/scientist_SCI3_LegBack1.png-c44ebe30394d6aeae763f36ea23eca4b.s3tc.ctex"]
+dest_files=["res://.godot/imported/scientist_SCI3_LegBack1.png-c44ebe30394d6aeae763f36ea23eca4b.s3tc.ctex", "res://.godot/imported/scientist_SCI3_LegBack1.png-c44ebe30394d6aeae763f36ea23eca4b.etc2.ctex"]
 
 [params]
 
