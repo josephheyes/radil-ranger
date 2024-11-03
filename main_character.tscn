@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbnfdvkem37u5"]
+[gd_scene load_steps=10 format=3 uid="uid://ioolcpo3k1af"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://crieo4w0fegep" path="res://scientist/scientist.glb" id="2_8q4yc"]
