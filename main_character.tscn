@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://ioolcpo3k1af"]
+
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ogrvs"]
 [ext_resource type="PackedScene" uid="uid://crieo4w0fegep" path="res://scientist/scientist.glb" id="2_8q4yc"]
@@ -6,6 +8,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww5by"]
 size = Vector3(2.5, 7, 1)
+
 
 [sub_resource type="GDScript" id="GDScript_ftgfs"]
 script/source = "extends Node3D
@@ -20,6 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
 
 [sub_resource type="Animation" id="Animation_8k7rv"]
 length = 0.1
@@ -100,6 +104,7 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Neck/Camera3D:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+
 properties/3/path = NodePath("Neck/Camera3D/Rifle/Blahaj:rotation")
 properties/3/spawn = true
 properties/3/replication_mode = 1
@@ -113,12 +118,14 @@ properties/6/path = NodePath("Neck/Camera3D/Rifle:position")
 properties/6/spawn = true
 properties/6/replication_mode = 1
 
+
 [node name="MainCharacter" type="CharacterBody3D"]
-collision_layer = 2
 script = ExtResource("1_ogrvs")
 
 [node name="scientist" parent="." instance=ExtResource("2_8q4yc")]
+
 transform = Transform3D(-0.999363, 0, 0.0356843, 0, 1, 0, -0.0356843, 0, -0.999363, 0, 0, 0)
+
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
@@ -153,3 +160,5 @@ shadow_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1h60d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
