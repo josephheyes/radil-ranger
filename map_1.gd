@@ -24,4 +24,3 @@ func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name= str(peer_id)
 	add_child(player)
-	

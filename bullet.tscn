@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://u7ymyp1dafst"]
+[gd_scene load_steps=8 format=3 uid="uid://c58l2nhn84ubd"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_0omlm"]
 
@@ -25,6 +25,14 @@ initial_velocity_max = 5.0
 [sub_resource type="BoxMesh" id="BoxMesh_vldme"]
 size = Vector3(0.04, 0.04, 0.04)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ibjf7"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Bullet" type="Node3D"]
 transform = Transform3D(0.171567, 0.626653, 0.760178, -0.0495835, 0.776135, -0.628615, -0.983924, 0.0701573, 0.164231, 1.48993, -1.319, 0.345804)
 script = ExtResource("1_0omlm")
@@ -45,3 +53,6 @@ material_override = SubResource("StandardMaterial3D_vy2i8")
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_g4ecm")
 draw_pass_1 = SubResource("BoxMesh_vldme")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ibjf7")
