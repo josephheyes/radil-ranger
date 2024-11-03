@@ -113,16 +113,19 @@ func lidar_scan(delta: float):
 	point_mesh(mousepos, 0.05)	
 	
 	
-func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
+func point_mesh(pos: Vector2, radius = 0.05, color = Color.WHITE):
 	var sphere_mesh := SphereMesh.new()
 	var multimesh := MultiMesh.new()
 	var multimesh_instance := MultiMeshInstance3D.new()
 	var material := ORMMaterial3D.new()
 	
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
-	multimesh.instance_count = 3000
 	
 	multimesh.mesh = sphere_mesh
+	multimesh.use_colors = true
+	
+	multimesh.instance_count = 3000
+	
 	multimesh_instance.multimesh = multimesh
 	multimesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	
@@ -132,6 +135,7 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
 	
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.albedo_color = color
+	material.vertex_color_use_as_albedo = true
 	
 	var origin = camera.project_ray_origin(pos)
 	var end = origin + camera.project_ray_normal(pos) * 2000
@@ -146,9 +150,20 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
 		query.collide_with_areas = true
 		query.exclude = [self]
 
-		var result = space_state.intersect_ray(query)
+		var result := space_state.intersect_ray(query)
 		if result:
+			var intersect_pos: Vector3 = result.get("position")
+			var distance := intersect_pos.distance_to(scientist.position)
+			
+			var hue := distance / 20
+			
+			if distance > 20:
+				hue = 1
+			
+			print(distance)
+			
 			multimesh.set_instance_transform(i, Transform3D(Basis(), Vector3(result.position)))
+			multimesh.set_instance_color(i, Color.from_hsv(hue, 1, 1))
 	
 	get_tree().get_root().add_child(multimesh_instance)
 	await fade_mesh_instance(multimesh_instance)
