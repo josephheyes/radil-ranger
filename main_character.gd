@@ -4,12 +4,31 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const RAY_LENGTH = 1000
 
+var bullet = load("res://bullet.tscn")
+var instance
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var neck := $Neck
-@onready var camera := $Neck/Camera3D
+@onready var neck = $Neck
+@onready var camera = $Neck/Camera3D
+@onready var gun_animation = $Neck/Camera3D/Blahaj
+@onready var gun_anim = $Neck/Camera3D/Rifle/AnimationPlayer
+@onready var gun_barrel = $Neck/Camera3D/Rifle/RayCast3D
+
+	#camera.current=true
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int())
+	
+# Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
+func _ready():
+	if not is_multiplayer_authority():
+		return
+	camera.current=true
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
@@ -20,19 +39,33 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * 0.005)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
-
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("lidar_scan"):
 		lidar_scan(delta)
 	
-	# Add the gravity.
+	if not is_multiplayer_authority():
+		return
+
+# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	# Shooot
+	if Input.is_action_pressed("Shoot"):
+		print("test")
+		if !gun_anim.is_playing():
+			print("test")
+			gun_anim.play("Shoot")
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

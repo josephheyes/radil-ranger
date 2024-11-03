@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bog14hmeuhfsh"
-path.s3tc="res://.godot/imported/SCI3X_Glasses1.png-5ba86e563926da6078683d08e1eb9d17.s3tc.ctex"
+uid="uid://bvyapn2axcmrp"
+path.s3tc="res://.godot/imported/scientist_Sci2_Knuckles.png-0606d9add458253c391324bb1c6f48ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "f5843e2e8aec8b428ab08810660796d1"
+}
 
 [deps]
 
-source_file="res://scientist/SCI3X_Glasses1.png"
-dest_files=["res://.godot/imported/SCI3X_Glasses1.png-5ba86e563926da6078683d08e1eb9d17.s3tc.ctex"]
+source_file="res://scientist/scientist_Sci2_Knuckles.png"
+dest_files=["res://.godot/imported/scientist_Sci2_Knuckles.png-0606d9add458253c391324bb1c6f48ba.s3tc.ctex"]
 
 [params]
 

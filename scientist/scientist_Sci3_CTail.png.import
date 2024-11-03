@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhcjy81ycj1t4"
-path.s3tc="res://.godot/imported/SCI3_LegBack1.png-d952bdfe38959875c0a8b3347064cf57.s3tc.ctex"
+uid="uid://lisjtl2vntbe"
+path.s3tc="res://.godot/imported/scientist_Sci3_CTail.png-12d3dc08fb689711737fa8eb1f4b96e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "49d39741b224a26624d8213e3c786c3a"
+}
 
 [deps]
 
-source_file="res://scientist/SCI3_LegBack1.png"
-dest_files=["res://.godot/imported/SCI3_LegBack1.png-d952bdfe38959875c0a8b3347064cf57.s3tc.ctex"]
+source_file="res://scientist/scientist_Sci3_CTail.png"
+dest_files=["res://.godot/imported/scientist_Sci3_CTail.png-12d3dc08fb689711737fa8eb1f4b96e5.s3tc.ctex"]
 
 [params]
 

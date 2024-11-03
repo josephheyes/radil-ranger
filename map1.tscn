@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://2382fsn5xgqs"]
 
 [ext_resource type="PackedScene" uid="uid://btufjuk03n4w7" path="res://main_character.tscn" id="1_x5nvb"]
+[ext_resource type="Script" path="res://map_1.gd" id="1_21quo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sgqxb"]
 size = Vector3(60, 2, 60)
@@ -15,11 +16,16 @@ size = Vector3(23.264, 5.8446, 0.704834)
 size = Vector3(23.264, 5.845, 0.705)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_21quo")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_sgqxb")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_sgqxb")
 skeleton = NodePath("")
 
@@ -43,3 +49,52 @@ shape = SubResource("BoxShape3D_tvuxl")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687683, 2.4223, 0.147583)
 mesh = SubResource("BoxMesh_ppm4r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Main Menu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 193.0
+offset_right = -386.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RADIL Ranger Main Menu"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Address"
+alignment = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://main_character.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/Main Menu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
