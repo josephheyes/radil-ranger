@@ -12,7 +12,7 @@ var instance
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck = $Neck
 @onready var camera = $Neck/Camera3D
-@onready var gun_animation = $Neck/Camera3D/Blahaj
+@onready var gun_animation = $Neck/Camera3D/Rifle/Blahaj
 @onready var gun_anim = $Neck/Camera3D/Rifle/AnimationPlayer
 @onready var gun_barrel = $Neck/Camera3D/Rifle/RayCast3D
 
