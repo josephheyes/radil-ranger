@@ -15,6 +15,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
 	if ray.is_colliding():
+		print(ray.get_collider())
+		if ray.get_collider() is CharacterBody3D:
+			ray.get_collider().on_hit()
 		mesh.visible = false
 		particles.emitting = true
 		await get_tree().create_timer(1.0).timeout

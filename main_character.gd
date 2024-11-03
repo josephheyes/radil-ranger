@@ -4,6 +4,9 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const RAY_LENGTH = 1000
 
+@export var damage := 1
+var health = 6
+
 var bullet = load("res://bullet.tscn")
 var instance
 
@@ -56,9 +59,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Shooot
 	if Input.is_action_pressed("Shoot"):
-		print("test")
 		if !gun_anim.is_playing():
-			print("test")
 			gun_anim.play("Shoot")
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
@@ -128,3 +129,11 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.RED):
 func fade_mesh_instance(instance: MultiMeshInstance3D):
 	await get_tree().create_timer(2).timeout
 	instance.queue_free()
+
+func on_hit() -> void:
+	print(health)
+	health -= damage
+	if health <= 0:
+		queue_free()
+		
+		# TODO: some kind of death screen
