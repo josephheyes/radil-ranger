@@ -118,7 +118,7 @@ func lidar_scan(delta: float):
 	
 	
 func point_mesh(pos: Vector2, radius = 0.05, color = Color.WHITE):
-	var sphere_mesh := SphereMesh.new()
+	var sphere_mesh := BoxMesh.new()
 	var multimesh := MultiMesh.new()
 	var multimesh_instance := MultiMeshInstance3D.new()
 	var material := ORMMaterial3D.new()
@@ -133,8 +133,8 @@ func point_mesh(pos: Vector2, radius = 0.05, color = Color.WHITE):
 	multimesh_instance.multimesh = multimesh
 	multimesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	
-	sphere_mesh.radius = radius
-	sphere_mesh.height = radius * 2
+	sphere_mesh.size = Vector3(radius, radius, radius)
+	#sphere_mesh.height = radius * 2
 	sphere_mesh.material = material
 	
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
